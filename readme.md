@@ -78,12 +78,11 @@ curl -s http://localhost:8000/v1/chat/completions \
 | OpenAI Model         | Gemini Model                 |
 | -------------------- | ---------------------------- |
 | gpt-3.5-turbo        | gemini-1.0-pro-latest        |
-| gpt-4                | gemini-1.5-pro-latest        |
-| gpt-4-vision-preview | gemini-1.0-pro-vision-latest |
+| gpt-4                | gemini-1.5-flsh-latest       |
+| gpt-4-vision-preview | gemini-1.5-pro-latest        |
 | gpt-4-turbo          | gemini-1.5-pro-latest        |
-| gpt-4o               | gemini-1.5-flash-latest      |
 | gpt-4-turbo-preview  | gemini-1.5-pro-latest        |
-| ...others            | gemini-1.0-pro-latest        |
+| ...others            | gemini-1.5-pro-latest        |
 
 ## Run On Serverless
 
