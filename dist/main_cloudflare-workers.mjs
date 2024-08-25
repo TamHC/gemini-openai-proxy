@@ -84,7 +84,7 @@ function openAiMessageToGeminiMessage(messages) {
   return result;
 }
 function genModel(req) {
-  const model = ModelMapping[req.model] ?? "gemini-1.0-pro-latest";
+  const model = ModelMapping[req.model] ?? "gemini-1.5-pro-latest";
   let functions = req.tools?.filter((it) => it.type === "function")?.map((it) => it.function) ?? [];
   functions = functions.concat(req.functions ?? []);
   const responseMimeType = req.response_format?.type === "json_object" ? "application/json" : "text/plain";
@@ -114,8 +114,8 @@ function genModel(req) {
   return [model, generateContentRequest];
 }
 var ModelMapping = {
-  "gemini-1.5-pro-latest": "gemini-1.5-pro-latest"
-  "gemini-1.5-flash-latest": "gemini-1.5-flash-latest"
+  "gemini-1.5-pro-latest": "gemini-1.0-pro-latest",
+  "gemini-1.5-flash-latest": "gemini-1.0-flash-latest",
   "gpt-3.5-turbo": "gemini-1.0-pro-latest",
   "gpt-4": "gemini-1.5-flash-latest",
   "gpt-4-vision-preview": "gemini-1.5-pro-latest",
@@ -150,6 +150,17 @@ function hello(req) {
   const origin = new URL(req.url).origin;
   return new Response(`
     Hello Gemini-OpenAI-Proxy from ${getRuntimeKey()}!
+
+    Model Mappings:
+
+    | OpenAI Model         | Gemini Model                 |
+    | -------------------- | ---------------------------- |
+    | gpt-3.5-turbo        | gemini-1.0-pro-latest        |
+    | gpt-4                | gemini-1.5-flsh-latest       |
+    | gpt-4-vision-preview | gemini-1.5-pro-latest        |
+    | gpt-4-turbo          | gemini-1.5-pro-latest        |
+    | gpt-4-turbo-preview  | gemini-1.5-pro-latest        |
+    | ...others            | gemini-1.5-pro-latest        |
 
     You can try it with:
 
