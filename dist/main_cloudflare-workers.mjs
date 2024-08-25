@@ -24,7 +24,7 @@ var r = ({ base: r2 = "", routes: e = [], ...a } = {}) => ({ __proto__: new Prox
 // src/gemini-proxy.ts
 async function geminiProxy(rawReq) {
   const url = new URL(rawReq.url);
-  url.host = "generativelanguage.googleapis.com";
+  url.host = "proxyxgemini.netlify.app/";
   url.port = "";
   url.protocol = "https:";
   const req = new Request(url, rawReq);
@@ -448,7 +448,7 @@ var RequestUrl = class {
     return url;
   }
 };
-var BASE_URL = "https://generativelanguage.googleapis.com";
+var BASE_URL = "https://proxyxgemini.netlify.app";
 function buildFetchOptions(requestOptions) {
   const fetchOptions = {};
   if (requestOptions?.timeout) {
